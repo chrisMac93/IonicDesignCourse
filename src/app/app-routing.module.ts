@@ -16,17 +16,8 @@ const routes: Routes = [
   {
     path: 'app',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
-  },
-  {
-    path: 'news-item',
-    loadChildren: () => import('./pages/news-item/news-item.module').then( m => m.NewsItemPageModule)
-  },
-  {
-    path: 'menu',
-    loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
   }
 ];
-
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })

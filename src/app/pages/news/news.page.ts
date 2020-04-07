@@ -11,11 +11,16 @@ import { LoadingController } from '@ionic/angular';
 export class NewsPage implements OnInit {
   selected = 'sports';
   news = [];
+  isMenuPage = false;
 
   constructor(private data: DataService, private router: Router, private loadingCtrl: LoadingController) { }
 
   ngOnInit() {
     this.loadData();
+  }
+
+  ionViewWillEnter() {
+    this.isMenuPage = this.router.url.indexOf('/menu') >= 0;
   }
 
   async loadData() {

@@ -6,7 +6,22 @@ import { MenuPage } from './menu.page';
 const routes: Routes = [
   {
     path: '',
-    component: MenuPage
+    redirectTo: 'profile',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    component: MenuPage,
+    children: [
+      {
+        path: 'profile',
+        loadChildren: '../profile/profile.module#ProfilePageModule'
+      },
+      {
+        path: 'news',
+        loadChildren: '../news/news.module#NewsPageModule'
+      }
+    ]
   }
 ];
 
